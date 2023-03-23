@@ -1,3 +1,5 @@
+import 'dart:io';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,6 +19,7 @@ class MyApp extends StatelessWidget {
         splashColor: Colors.transparent,
         highlightColor: Colors.transparent,
         hoverColor: Colors.transparent,
+        textTheme: GoogleFonts.poppinsTextTheme(),
       ),
       home: HomePage(),
     );
@@ -138,21 +141,66 @@ class Plants extends StatelessWidget {
           padding: const EdgeInsets.all(8),
             children: <Widget>[
             Container(
-              height: 50,
-              color: Colors.white,
-              child: const Center(child: Text('Pothos')),
-            ),
-            Container(
-                height: 50,
+              alignment: Alignment.centerLeft,
+              height: 100,
+              decoration: BoxDecoration(
                 color: Colors.white,
-                child: const Center(child: Text('Snake plant')),
+                image: DecorationImage(
+                  alignment: Alignment.centerRight,
+                  image: AssetImage('img/pothos.png'),
+                    fit: BoxFit.fitHeight ,
+                  )
+              ),
+              child: Text('Pothos',
+              style: GoogleFonts.poppins(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 25,
+                  ),
+              ),
             ),
             Container(
-              height: 50,
-              color: Colors.white,
-              child: const Center(child: Text('English ivy')),
+                alignment: Alignment.centerLeft,
+                height: 100,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  image: DecorationImage(
+                    alignment: Alignment.centerRight,
+                    image: AssetImage('img/snakeplant.png'),
+                      fit: BoxFit.contain
+                  )
+                ),
+                 child: Text('Snake plant', 
+                 style: GoogleFonts.poppins(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 25,
+                  ),
+                 ),    
             ),
-          ],
+            Container(
+              alignment: Alignment.centerLeft,
+              height: 100,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                image: DecorationImage(
+                  alignment: Alignment.centerRight,
+                  image: AssetImage('img/englishivy.png'), 
+                    fit: BoxFit.contain
+                    )
+                  ), 
+                child: TextButton(
+                  style: TextButton.styleFrom(
+                    textStyle: const TextStyle(fontSize: 20),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const Plant()),
+                      );
+                    },
+                  child: const Text('English Ivy'),
+                ),
+              ),
+            ],
           ),
         ),
       );
@@ -194,6 +242,27 @@ class Alarms extends StatelessWidget {
             fontSize: 45,
             fontWeight: FontWeight.w500,
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class Plant extends StatelessWidget {
+  const Plant({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Plant'),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            // Navigate back to first route when tapped.
+          },
+          child: const Text('Go back!'),
         ),
       ),
     );
