@@ -151,12 +151,20 @@ class Plants extends StatelessWidget {
                     fit: BoxFit.fitHeight ,
                   )
               ),
-              child: Text('Pothos',
-              style: GoogleFonts.poppins(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 25,
+              child: TextButton(
+                  style: TextButton.styleFrom(
+                    textStyle: const TextStyle(fontSize: 20,),
                   ),
-              ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const Plant()),
+                      );
+                    },
+                  child: Text('Pothos', style: GoogleFonts.poppins(
+                    textStyle: TextStyle(color: Colors.black, fontWeight: FontWeight.w600)
+                  )),
+                ),
             ),
             Container(
                 alignment: Alignment.centerLeft,
@@ -169,12 +177,20 @@ class Plants extends StatelessWidget {
                       fit: BoxFit.contain
                   )
                 ),
-                 child: Text('Snake plant', 
-                 style: GoogleFonts.poppins(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 25,
+                 child: TextButton(
+                  style: TextButton.styleFrom(
+                    textStyle: const TextStyle(fontSize: 20,),
                   ),
-                 ),    
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const Plant()),
+                      );
+                    },
+                  child: Text('Snake Plant', style: GoogleFonts.poppins(
+                    textStyle: TextStyle(color: Colors.black, fontWeight: FontWeight.w600)
+                  ),),
+                ),   
             ),
             Container(
               alignment: Alignment.centerLeft,
@@ -189,7 +205,7 @@ class Plants extends StatelessWidget {
                   ), 
                 child: TextButton(
                   style: TextButton.styleFrom(
-                    textStyle: const TextStyle(fontSize: 20),
+                    textStyle: const TextStyle(fontSize: 20,),
                   ),
                   onPressed: () {
                     Navigator.push(
@@ -197,7 +213,9 @@ class Plants extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => const Plant()),
                       );
                     },
-                  child: const Text('English Ivy'),
+                  child: Text('English Ivy', style: GoogleFonts.poppins(
+                    textStyle: TextStyle(color: Colors.black, fontWeight: FontWeight.w600)
+                  ),),
                 ),
               ),
             ],
