@@ -158,7 +158,7 @@ class Plants extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const Plant()),
+                      MaterialPageRoute(builder: (context) => const Pothos()),
                       );
                     },
                   child: Text('Pothos', style: GoogleFonts.poppins(
@@ -184,7 +184,7 @@ class Plants extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const Plant()),
+                      MaterialPageRoute(builder: (context) => const SnakePlant()),
                       );
                     },
                   child: Text('Snake Plant', style: GoogleFonts.poppins(
@@ -210,7 +210,7 @@ class Plants extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const Plant()),
+                      MaterialPageRoute(builder: (context) => const EnglishIvy()),
                       );
                     },
                   child: Text('English Ivy', style: GoogleFonts.poppins(
@@ -266,21 +266,63 @@ class Alarms extends StatelessWidget {
   }
 }
 
-class Plant extends StatelessWidget {
-  const Plant({super.key});
+class Pothos extends StatelessWidget {
+  const Pothos({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Plant'),
+        title: const Text('Pothos'),
       ),
       body: Center(
         child: ElevatedButton(
           onPressed: () {
-            // Navigate back to first route when tapped.
+            Navigator.pop(context);
           },
-          child: const Text('Go back!'),
+          child: const Text('Pothos'),
+        ),
+      ),
+    );
+  }
+}
+
+class SnakePlant extends StatelessWidget {
+  const SnakePlant({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Snake plant'),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: const Text('Snake plant'),
+        ),
+      ),
+    );
+  }
+}
+
+class EnglishIvy extends StatelessWidget {
+  const EnglishIvy({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('English ivy'),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: const Text('English ivy'),
         ),
       ),
     );
