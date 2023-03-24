@@ -37,9 +37,7 @@ class _HomePageState extends State<HomePage> {
   int pageIndex = 0;
 
   final pages = [
-    const Plants(),
-    const Notes(),
-    const Alarms()
+    const Plants()
   ];
 
   @override
@@ -56,75 +54,7 @@ class _HomePageState extends State<HomePage> {
         ),
         centerTitle: true,
       ),
-      body: pages[pageIndex],
-      bottomNavigationBar: Container(
-        height: 60,
-        decoration: BoxDecoration(
-          color: Theme.of(context).primaryColor
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            IconButton(
-              enableFeedback: false,
-              onPressed: () {
-                setState(() {
-                  pageIndex = 0;
-                });
-              },
-              icon: pageIndex == 0 ? 
-                const Icon(
-                  Icons.wb_sunny_outlined,
-                  color: Colors.white,
-                  size: 35,
-                ) 
-                : const Icon(
-                  Icons.sunny,
-                  color: Colors.white,
-                  size: 35,
-                ), 
-              ),
-            IconButton(
-              enableFeedback: false,
-              onPressed: () {
-                setState(() {
-                  pageIndex = 1;
-                });
-              },
-              icon: pageIndex == 1 ? 
-                const Icon(
-                  Icons.find_in_page_outlined,
-                  color: Colors.white,
-                  size: 35,
-                ) 
-                : const Icon(
-                  Icons.find_in_page,
-                  color: Colors.white,
-                  size: 35,
-                ), 
-              ),
-            IconButton(
-              enableFeedback: false,
-              onPressed: () {
-                setState(() {
-                  pageIndex = 2;
-                });
-              },
-              icon: pageIndex == 2 ? 
-                const Icon(
-                  Icons.alarm_outlined,
-                  color: Colors.white,
-                  size: 35,
-                ) 
-                : const Icon(
-                  Icons.alarm,
-                  color: Colors.white,
-                  size: 35,
-                ), 
-              ),
-          ],
-        ),
-      ),
+      body: pages[0],
     );
   }
 }
@@ -140,7 +70,7 @@ class Plants extends StatelessWidget {
         child: ListView(
           padding: const EdgeInsets.all(8),
             children: <Widget>[
-            Container(
+             Container(
               alignment: Alignment.centerLeft,
               height: 100,
               decoration: BoxDecoration(
@@ -224,47 +154,6 @@ class Plants extends StatelessWidget {
       );
   }
 }
-class Notes extends StatelessWidget {
-  const Notes({Key? key}) : super(key: key);
-  
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Color.fromARGB(255, 255, 255, 255),
-      child: Center(
-        child: Text(
-          "Notes",
-          style: TextStyle(
-            color: Colors.green[900],
-            fontSize: 45,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class Alarms extends StatelessWidget {
-  const Alarms({Key? key}) : super(key: key);
-  
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Color.fromARGB(255, 255, 255, 255),
-      child: Center(
-        child: Text(
-          "Alarms",
-          style: TextStyle(
-            color: Colors.green[900],
-            fontSize: 45,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-      ),
-    );
-  }
-}
 
 class Pothos extends StatelessWidget {
   const Pothos({super.key});
@@ -276,13 +165,13 @@ class Pothos extends StatelessWidget {
         title: const Text('Pothos'),
       ),
       body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: const Text('Pothos'),
-        ),
-      ),
+        child: Card(
+          clipBehavior: Clip.hardEdge,
+          child: InkWell(
+            
+          )
+        )
+      )
     );
   }
 }
@@ -296,14 +185,24 @@ class SnakePlant extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Snake plant'),
       ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: const Text('Snake plant'),
-        ),
-      ),
+      body: Row(
+        children: <Widget> [
+          Expanded(
+            child: Text('Snake Plant', 
+              textAlign: TextAlign.center, 
+              style: GoogleFonts.poppins(
+                  textStyle: TextStyle(
+                    fontSize: 25, 
+                    color: Colors.black,
+                  )
+                ),
+              )
+            ),
+          Expanded(
+            child: Image(image: AssetImage('img/snakeplant.png'))
+          ),
+        ],
+      )
     );
   }
 }
@@ -317,14 +216,24 @@ class EnglishIvy extends StatelessWidget {
       appBar: AppBar(
         title: const Text('English ivy'),
       ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: const Text('English ivy'),
-        ),
-      ),
+      body: Row(
+        children: <Widget> [
+          Expanded(
+            child: Text('English Ivy', 
+              textAlign: TextAlign.center, 
+              style: GoogleFonts.poppins(
+                  textStyle: TextStyle(
+                    fontSize: 25, 
+                    color: Colors.black,
+                  )
+                ),
+              )
+            ),
+          Expanded(
+            child: Image(image: AssetImage('img/englishivy.png'))
+          ),
+        ],
+      )
     );
   }
 }
