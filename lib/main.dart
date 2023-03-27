@@ -20,7 +20,9 @@ class MyApp extends StatelessWidget {
         highlightColor: Colors.transparent,
         hoverColor: Colors.transparent,
         textTheme: GoogleFonts.poppinsTextTheme(),
+        scaffoldBackgroundColor: Colors.white,
       ),
+      debugShowCheckedModeBanner: false,
       home: HomePage(),
     );
   }
@@ -70,6 +72,7 @@ class Plants extends StatelessWidget {
         child: ListView(
           padding: const EdgeInsets.all(8),
             children: <Widget>[
+              // kultaköynnös 
              Container(
               alignment: Alignment.centerLeft,
               height: 100,
@@ -91,11 +94,12 @@ class Plants extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => const Pothos()),
                       );
                     },
-                  child: Text('Pothos', style: GoogleFonts.poppins(
+                  child: Text('Kultaköynnös', style: GoogleFonts.poppins(
                     textStyle: TextStyle(color: Colors.black, fontWeight: FontWeight.w600)
                   )),
                 ),
             ),
+            // Anopinkieli
             Container(
                 alignment: Alignment.centerLeft,
                 height: 100,
@@ -117,11 +121,12 @@ class Plants extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => const SnakePlant()),
                       );
                     },
-                  child: Text('Snake Plant', style: GoogleFonts.poppins(
+                  child: Text('Anopinkieli', style: GoogleFonts.poppins(
                     textStyle: TextStyle(color: Colors.black, fontWeight: FontWeight.w600)
                   ),),
                 ),   
             ),
+            // Varjomuraatti
             Container(
               alignment: Alignment.centerLeft,
               height: 100,
@@ -143,7 +148,86 @@ class Plants extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => const EnglishIvy()),
                       );
                     },
-                  child: Text('English Ivy', style: GoogleFonts.poppins(
+                  child: Text('Varjomuraatti', style: GoogleFonts.poppins(
+                    textStyle: TextStyle(color: Colors.black, fontWeight: FontWeight.w600)
+                  ),),
+                ),
+              ),
+              // Rönsylilja
+              Container(
+              alignment: Alignment.centerLeft,
+              height: 100,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                image: DecorationImage(
+                  alignment: Alignment.centerRight,
+                  image: AssetImage('img/spiderplant.png',), 
+                    fit: BoxFit.contain,
+                    )
+                  ), 
+                child: TextButton(
+                  style: TextButton.styleFrom(
+                    textStyle: const TextStyle(fontSize: 20,),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const SpiderPlant()),
+                      );
+                    },
+                  child: Text('Rönsylilja', style: GoogleFonts.poppins(
+                    textStyle: TextStyle(color: Colors.black, fontWeight: FontWeight.w600)
+                  ),),
+                ),
+              ),
+              Container(
+              alignment: Alignment.centerLeft,
+              height: 100,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                image: DecorationImage(
+                  alignment: Alignment.centerRight,
+                  image: AssetImage('img/peacelily.png'), 
+                    fit: BoxFit.contain
+                    )
+                  ), 
+                child: TextButton(
+                  style: TextButton.styleFrom(
+                    textStyle: const TextStyle(fontSize: 20,),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const PeaceLily()),
+                      );
+                    },
+                  child: Text('Viirivehka', style: GoogleFonts.poppins(
+                    textStyle: TextStyle(color: Colors.black, fontWeight: FontWeight.w600)
+                  ),),
+                ),
+              ),
+              Container(
+              alignment: Alignment.centerLeft,
+              height: 100,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                image: DecorationImage(
+                  alignment: Alignment.centerRight,
+                  image: AssetImage('img/aloevera.png'), 
+                    fit: BoxFit.contain
+                    )
+                  ), 
+                child: TextButton(
+                  style: TextButton.styleFrom(
+                    textStyle: const TextStyle(fontSize: 20,),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const AloeVera()),
+                      );
+                    },
+                  child: Text('Aloe vera', style: GoogleFonts.poppins(
                     textStyle: TextStyle(color: Colors.black, fontWeight: FontWeight.w600)
                   ),),
                 ),
@@ -155,6 +239,7 @@ class Plants extends StatelessWidget {
   }
 }
 
+// kultaköynnös
 class Pothos extends StatelessWidget {
   const Pothos({super.key});
 
@@ -162,20 +247,68 @@ class Pothos extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Pothos'),
+        title: const Text('Kultaköynnös'),
       ),
-      body: Center(
-        child: Card(
-          clipBehavior: Clip.hardEdge,
-          child: InkWell(
-            
+      body: GridView.count(
+        primary: false,
+        padding: const EdgeInsets.all(10),
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+        crossAxisCount: 2,
+        children: <Widget>[
+          Container(
+            padding: const EdgeInsets.fromLTRB(5, 50, 5, 5),
+            child: const 
+            Text("Kultaköynnös", 
+              textAlign: TextAlign.center, 
+                style: TextStyle(
+                  fontSize: 25, fontWeight: FontWeight.w600),
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.all(5),
+            child: 
+            Image(
+              image: 
+                AssetImage('img/pothos.png')
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+            child: const Text
+              ('Kultaköynnös on liaanimainen köynnöskasvi, joka pitää puolivarjoisesta ja kosteasta. Kasvi on lievästi myrkyllinen.'),
+          ),
+          Container(
+            padding: EdgeInsets.all(5),
+            child: Stack(
+              alignment: Alignment.topCenter,
+              children: <Widget>[
+                Positioned(
+                  top: 0,
+                  child:Image.asset('img/slider_sun_2.png', width: 150,),
+                ),
+                Positioned(
+                  top: 60,
+                  child: Image.asset('img/slider_rain_2.png', width: 150,)
+                ),
+              ],  
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+            child: Image.asset('img/pothos1.png', width: 300,)
+          ),
+          Container(
+            padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+            child: Text('Kasvi pitää sumuttelusta ja säännöllisestä kastelusta. Pintamullan voi antaa kuivahtaa kasteluiden välissä.')
           )
-        )
+        ],
       )
     );
   }
 }
 
+// anopinkieli
 class SnakePlant extends StatelessWidget {
   const SnakePlant({super.key});
 
@@ -183,30 +316,68 @@ class SnakePlant extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Snake plant'),
+        title: const Text('Anopinkieli'),
       ),
-      body: Row(
-        children: <Widget> [
-          Expanded(
-            child: Text('Snake Plant', 
+      body: GridView.count(
+        primary: false,
+        padding: const EdgeInsets.all(10),
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+        crossAxisCount: 2,
+        children: <Widget>[
+          Container(
+            padding: const EdgeInsets.fromLTRB(5, 50, 5, 5),
+            child: const 
+            Text("Anopinkieli", 
               textAlign: TextAlign.center, 
-              style: GoogleFonts.poppins(
-                  textStyle: TextStyle(
-                    fontSize: 25, 
-                    color: Colors.black,
-                  )
-                ),
-              )
+                style: TextStyle(
+                  fontSize: 25, fontWeight: FontWeight.w600),
             ),
-          Expanded(
-            child: Image(image: AssetImage('img/snakeplant.png'))
           ),
+          Container(
+            padding: const EdgeInsets.all(5),
+            child: 
+            Image(
+              image: 
+                AssetImage('img/snakeplant.png')
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+            child: const Text
+              ('Anopinkieli on hyvin helppohoitoinen kasvi, joka viihtyy kaikenlaisissa olosuhteissa. Parhaiten se kuitenkin voi kirkkaassa valossa.'),
+          ),
+          Container(
+            padding: EdgeInsets.all(5),
+            child: Stack(
+              alignment: Alignment.topCenter,
+              children: <Widget>[
+                Positioned(
+                  top: 0,
+                  child:Image.asset('img/slider_sun_3.png', width: 150,),
+                ),
+                Positioned(
+                  top: 60,
+                  child: Image.asset('img/slider_rain_1.png', width: 150,)
+                ),
+              ],  
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+            child: Image.asset('img/snakeplant1.png', width: 300,)
+          ),
+          Container(
+            padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+            child: Text('Kasvia kastellaan niukasti, mutta siten että multa on kastunut kunnolla ja varoen lehtiä. Mullan saa antaa kuivahtaa kokonaan kasteluiden välissä.')
+          )
         ],
       )
     );
   }
 }
 
+// varjomuraatti
 class EnglishIvy extends StatelessWidget {
   const EnglishIvy({super.key});
 
@@ -214,24 +385,265 @@ class EnglishIvy extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('English ivy'),
+        title: const Text('Varjomuraatti'),
       ),
-      body: Row(
-        children: <Widget> [
-          Expanded(
-            child: Text('English Ivy', 
+      body: GridView.count(
+        primary: false,
+        padding: const EdgeInsets.all(10),
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+        crossAxisCount: 2,
+        children: <Widget>[
+          Container(
+            padding: const EdgeInsets.fromLTRB(2, 50, 5, 5),
+            child: const 
+            Text("Varjomuraatti", 
               textAlign: TextAlign.center, 
-              style: GoogleFonts.poppins(
-                  textStyle: TextStyle(
-                    fontSize: 25, 
-                    color: Colors.black,
-                  )
-                ),
-              )
+                style: TextStyle(
+                  fontSize: 25),
             ),
-          Expanded(
-            child: Image(image: AssetImage('img/englishivy.png'))
           ),
+          Container(
+            padding: const EdgeInsets.all(5),
+            child: 
+            Image(
+              image: 
+                AssetImage('img/englishivy.png')
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+            child: const Text
+              ('Varjomuraatti on köynnösmäinen kasvi, joka on helpohko hoitaa. Kasvi suosii puolivarjoisaa valoa ja kosteaa multaa.'),
+          ),
+          Container(
+            padding: EdgeInsets.all(5),
+            child: Stack(
+              alignment: Alignment.topCenter,
+              children: <Widget>[
+                Positioned(
+                  top: 0,
+                  child:Image.asset('img/slider_sun_2.png', width: 150,),
+                ),
+                Positioned(
+                  top: 60,
+                  child: Image.asset('img/slider_rain_2.png', width: 150,)
+                ),
+              ],  
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+            child: Image.asset('img/englishivy1.png', )
+          ),
+          Container(
+            padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+            child: Text('Mullan ei tarvitse kuivua kasteluiden välissä, riittää kun pintamulta on kuiva. Kasvi pitää myös sumutuksesta.')
+          )
+        ],
+      )
+    );
+  }
+}
+
+class SpiderPlant extends StatelessWidget {
+  const SpiderPlant({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Rönsylilja'),
+      ),
+      body: GridView.count(
+        primary: false,
+        padding: const EdgeInsets.all(10),
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+        crossAxisCount: 2,
+        children: <Widget>[
+          Container(
+            padding: const EdgeInsets.fromLTRB(2, 50, 5, 5),
+            child: const 
+            Text("Rönsylilja", 
+              textAlign: TextAlign.center, 
+                style: TextStyle(
+                  fontSize: 25),
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.all(5),
+            child: 
+            Image(
+              image: 
+                AssetImage('img/spiderplant.png')
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+            child: const Text
+              ('Rönsylilja on pensasmainen kasvi, joka nauttii kosteudesta ja suojaisesta paikasta.'),
+          ),
+          Container(
+            padding: EdgeInsets.all(5),
+            child: Stack(
+              alignment: Alignment.topCenter,
+              children: <Widget>[
+                Positioned(
+                  top: 0,
+                  child:Image.asset('img/slider_sun_2.png', width: 150,),
+                ),
+                Positioned(
+                  top: 60,
+                  child: Image.asset('img/slider_rain_3.png', width: 150,)
+                ),
+              ],  
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+            child: Image.asset('img/spiderplant1.png', width: 300,)
+          ),
+          Container(
+            padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+            child: Text('Kasvi pitää tasaisesta kosteudesta, jota edesauttaa hyvin ilmava multa. ')
+          )
+        ],
+      )
+    );
+  }
+}
+
+class PeaceLily extends StatelessWidget {
+  const PeaceLily({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Viirivehka'),
+      ),
+      body: GridView.count(
+        primary: false,
+        padding: const EdgeInsets.all(10),
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+        crossAxisCount: 2,
+        children: <Widget>[
+          Container(
+            padding: const EdgeInsets.fromLTRB(2, 50, 5, 5),
+            child: const 
+            Text("Viirivehka", 
+              textAlign: TextAlign.center, 
+                style: TextStyle(
+                  fontSize: 25),
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.all(5),
+            child: 
+            Image(
+              image: 
+                AssetImage('img/peacelily.png')
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+            child: const Text
+              ('Viirivehka on kaunis huonekasvi, joka pitää puolivarjoisesta paikasta ja kosteasta ympäristöstä.'),
+          ),
+          Container(
+            padding: EdgeInsets.all(5),
+            child: Stack(
+              alignment: Alignment.topCenter,
+              children: <Widget>[
+                Positioned(
+                  top: 0,
+                  child:Image.asset('img/slider_sun_2.png', width: 150,),
+                ),
+                Positioned(
+                  top: 60,
+                  child: Image.asset('img/slider_rain_2.png', width: 150,)
+                ),
+              ],  
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+            child: Image.asset('img/peacelily1.png', width: 300,)
+          ),
+          Container(
+            padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+            child: Text('Vaikka kasvi pitää kosteudesta, se kestää enemmän alikastelua kuin ylikastelua. Kasvi tuottaa enemmän kukkia, jos se laitetaan aurinkoiseen ympäristöön.')
+          )
+        ],
+      )
+    );
+  }
+}
+
+class AloeVera extends StatelessWidget {
+  const AloeVera({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Aloe Vera'),
+      ),
+      body: GridView.count(
+        primary: false,
+        padding: const EdgeInsets.all(10),
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+        crossAxisCount: 2,
+        children: <Widget>[
+          Container(
+            padding: const EdgeInsets.fromLTRB(2, 50, 5, 5),
+            child: const 
+            Text("Aloe vera", 
+              textAlign: TextAlign.center, 
+                style: TextStyle(
+                  fontSize: 25),
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.all(5),
+            child: 
+            Image(
+              image: 
+                AssetImage('img/aloevera.png')
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+            child: const Text
+              ('Aloe vera on tuttu lääkekasvi, joka pitää valosta eikä tarvitse paljoa kastelua.'),
+          ),
+          Container(
+            padding: EdgeInsets.all(5),
+            child: Stack(
+              alignment: Alignment.topCenter,
+              children: <Widget>[
+                Positioned(
+                  top: 0,
+                  child:Image.asset('img/slider_sun_2.png', width: 150,),
+                ),
+                Positioned(
+                  top: 60,
+                  child: Image.asset('img/slider_rain_1.png', width: 150,)
+                ),
+              ],  
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+            child: Image.asset('img/aloevera1.png', width: 300,)
+          ),
+          Container(
+            padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+            child: Text('Kasvia kastellaan korkeintaan kahdesti kuukaudessa, jottei juuret mätäne. Valoisa ympäristön suositeltavaa kasville.')
+          )
         ],
       )
     );
