@@ -245,11 +245,21 @@ class Pothos extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
       appBar: AppBar(
+        bottom: TabBar(
+          tabs: [
+            Tab(text: 'Kasvi'),
+            Tab(text: 'Muistio',)
+          ]
+        ),
         title: const Text('Kultaköynnös'),
       ),
-      body: GridView.count(
+      body: TabBarView(
+        children: [
+        GridView.count(
         primary: false,
         padding: const EdgeInsets.all(10),
         crossAxisSpacing: 10,
@@ -303,7 +313,18 @@ class Pothos extends StatelessWidget {
             child: Text('Kasvi pitää sumuttelusta ja säännöllisestä kastelusta. Pintamullan voi antaa kuivahtaa kasteluiden välissä.')
           )
         ],
+      ),
+      Center(
+        child: TextField(
+          decoration: InputDecoration(
+            border: OutlineInputBorder(),
+            hintText: 'Voit kirjoittaa tähän'
+          ),
+        ),
       )
+      ]
+      )
+    )
     );
   }
 }
