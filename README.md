@@ -1,3 +1,3 @@
 # kasviinfosovellus
 
-Auttaa kasvien hoidossa. Kesken.
+Auttaa kasvien hoidossa.
